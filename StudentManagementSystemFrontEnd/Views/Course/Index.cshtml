@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/plugins/images/favicon.png">
+    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- Bootstrap Core CSS -->
+    <!-- Menu CSS -->
+    <link href="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="~/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="~/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="~/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="~/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link href="~/library/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+
+</head>
+<body class="fix-header">
+    @*<div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>*@
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-0 p-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    @*<a class="logo" href="dashboard.html">
+                            <!-- Logo icon image, you can use font-icon also --><b>
+                                <!--This is dark logo icon--><img src="~/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                            </b>
+                            <!-- Logo text image you can use text also --><span class="hidden-xs">
+                                <!--This is dark logo text--><img src="~/plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                            </span>
+                        </a>*@
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="profile-pic" href="#">
+                            <b class="hidden-xs m-r-15">Adminstrator</b>
+                            <img src="~/plugins/images/users/varun.jpg" alt="user-img" width="36" class="rounded">
+                        </a>
+                    </li>
+                    <button class="btn btn-primary pull-right ml-3" id="btnLogout" style="width:120px"> Log Out</button>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    @*<li style="padding: 70px 0 0;">
+            <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+        </li>*@
+
+                    @*<li>
+            <a href="basic-table.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Adminstrators</a>
+        </li>*@
+                    <li style="padding: 70px 0 0;">
+                        <a href="https://localhost:5001/Dashboard/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Student/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Students</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Course/" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Courses</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Subject/" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Subjects</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Course</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Administrator</a></li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="col-lg-12">
+                                <h4 class="font-weight-light my-2">Manage Courses</h4>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Search course..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="btnSearch">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>NAME</th>
+                                            <th>SELECTED</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableItems"></tbody>
+                                </table>
+                                <div>
+                                    <a href="https://localhost:5001/Dashboard/Course/new" class="btn btn-primary pull-left ml-3 text-white" style="width:95px">+Course</a>
+                                    <button class="btn btn-primary pull-right ml-3" id="btnDelete" style="width:80px" disabled>Delete</button>
+                                    <button class="btn btn-primary pull-right ml-3" id="btnView" style="width:80px" disabled>View</button>
+                                </div>
+                            </div>
+                            <div class="text-center my-2" id="spinner" hidden>
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                @*<div class="row">
+                        <div class="col-lg-4 col-sm-6 col-xs-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Students</h3>
+                                <ul class="list-inline two-part">
+                                    <li>
+                                        <div id="sparklinedash2"></div>
+                                    </li>
+                                    <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">869</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 col-xs-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Courses</h3>
+                                <ul class="list-inline two-part">
+                                    <li>
+                                        <div id="sparklinedash3"></div>
+                                    </li>
+                                    <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info">911</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 col-xs-12">
+                            <div class="white-box analytics-info">
+                                <h3 class="box-title">Subjects</h3>
+                                <ul class="list-inline two-part">
+                                    <li>
+                                        <div id="sparklinedash"></div>
+                                    </li>
+                                    <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">659</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+
+                <!--/.row -->
+                <!--row -->
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+            @*<footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>*@
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!--===============================================================================================-->
+    <script src="~/library/jquery/jquery-3.3.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/library/bootstrap/js/popper.min.js"></script>
+    <script src="~/library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--===============================================================================================-->
+    <!-- Menu Plugin JavaScript -->
+    <script src="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="~/js/waves.js"></script>
+    Counter js
+    <script src="~/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="~/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="~/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="~/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/js/dashboard1.js"></script>
+    <script src="~/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('token') == null) {
+                window.location.replace("https://localhost:5001/Login")
+            } 
+
+            var courses = [];
+
+
+
+            function tableList(data) {
+                return data = "<tr data-id='" + data.courseId + "'>"
+                    + "<td>" + data.loopID + "</td>"
+                    + "<td class='txt-oflo'>" + data.name + "</td>"
+                    + "<td>"
+                    + "<div class='custom-control custom-checkbox'>"
+                    + "<input class='form-check-input position-static' type='checkbox' id='blankCheckbox' value='option1' aria-label='...' data-id='" + data.courseId + "'>"
+                    + "</div>"
+                    + "</td>"
+                    + "</tr>";
+            }
+
+            var $Table = $("#tableItems");
+            var $btnDelete = $("#btnDelete");
+            var $btnView = $("#btnView");
+            var $form = $("#form");
+            var $btnSearch = $("#btnSearch")
+            var $spinner = $("#spinner");
+
+
+            loadData();
+
+            function loadData() {
+                $spinner.prop("hidden", false);
+                $.ajax({
+                    type: "GET",
+                    url: "https://localhost:44380/api/v1/courses",
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        $spinner.prop("hidden", true);
+                        console.log(data);
+
+                        var modifyCourse = $.each(data, function (index, data) {
+                            data.loopID = index + 1;
+
+                        })
+                        courses = modifyCourse;
+
+                        $.each(courses, function (key, value) {
+
+                            var data = tableList(value);
+                            $Table.append(data);
+                        });
+
+                        $Table.find("input[type='checkbox']").on('click', function () {
+                            if ($(this).prop("checked")) {
+                                if ($("input[type='checkbox']:checked").length == 1) {
+                                    $btnView.prop('disabled', false);
+                                } else {
+                                    $btnView.prop('disabled', true);
+                                }
+                                $btnDelete.prop('disabled', false);
+                            } else {
+                                console.log($("input[type='checkbox']:checked").length)
+                                if ($("input[type='checkbox']:checked").length == 0) {
+                                    $btnDelete.prop('disabled', true);
+                                    $btnView.prop('disabled', true);
+                                }
+                                else if ($("input[type='checkbox']:checked").length == 1) {
+                                    $btnView.prop('disabled', false);
+                                }
+                            }
+
+                        })
+                    },
+                    error: function (data) {
+                        if (data.status == "401") {
+                            window.location.replace("https://localhost:5001/Login");
+                        }
+                        console.log('bad')
+                    }
+                });
+            }
+            function deleteCourse(data) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://localhost:44380/api/v1/courses/" + data,
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        //window.location.replace("https://localhost:5001/Dashboard/Course");
+                    },
+                    error: function (data) {
+                        console.log(data)
+                        alert("Server is off")
+                        console.log('bad')
+                    }
+                });
+            }
+
+            $btnDelete.on("click", function (e) {
+                e.preventDefault();
+                var checked = $Table.find("input[type='checkbox']:checked");
+                if (checked.length > 0) {
+                    checked.each(function () {
+                        var data = $(this).data('id');
+                        deleteCourse(data)
+                        $(this).closest("tr").remove();
+                    })
+                } else {
+                    alert('notSelected')
+                }
+                console.log(checked);
+            })
+
+            $btnView.on("click", function (e) {
+                e.preventDefault();
+                var $firstChecked = $Table.find("input[type='checkbox']:checked").first();
+
+                var id = $firstChecked.data('id');
+                window.location.replace("https://localhost:5001/Dashboard/Course/" + id)
+            })
+
+            //searching for courses
+            $btnSearch.on("click", function (e) {
+                e.preventDefault();
+                var inputValue = $(this).parent().siblings().first().val().trim();
+
+                if (inputValue != "") {
+                    $.ajax({
+                        type: "GET",
+                        url: "https://localhost:44380/api/v1/courses/" + inputValue,
+                        headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            data.loopID = 1;
+                            $Table.empty();
+
+                            var dataElement = tableList(data);
+                            $Table.append(dataElement);
+
+                            $Table.find("input[type='checkbox']").on('click', function () {
+                                if ($(this).prop("checked")) {
+                                    if ($("input[type='checkbox']:checked").length == 1) {
+                                        $btnView.prop('disabled', false);
+                                    } else {
+                                        $btnView.prop('disabled', true);
+                                    }
+                                    $btnDelete.prop('disabled', false);
+                                } else {
+                                    console.log($("input[type='checkbox']:checked").length)
+                                    if ($("input[type='checkbox']:checked").length == 0) {
+                                        $btnDelete.prop('disabled', true);
+                                        $btnView.prop('disabled', true);
+                                    }
+                                    else if ($("input[type='checkbox']:checked").length == 1) {
+                                        $btnView.prop('disabled', false);
+                                    }
+                                }
+
+                            })
+                        },
+                        error: function (data) {
+                            $Table.empty();
+                            alert("Not Found")
+                            console.log('bad')
+                        }
+                    });
+                } else {
+                    $Table.empty();
+                    loadData();
+                }
+
+            })
+
+            $('#btnLogout').on('click', function () {
+                localStorage.removeItem('token');
+                window.location.replace("https://localhost:5001/Login");
+            })
+        });
+    </script>
+</body>
+
+</html>

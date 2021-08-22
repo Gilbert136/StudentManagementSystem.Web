@@ -1,0 +1,631 @@
+﻿@{ var id = ViewData["id"];}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/plugins/images/favicon.png">
+    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- Bootstrap Core CSS -->
+    @*<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="~/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="~/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="~/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="~/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+<body class="fix-header">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-0 p-0">
+            <div class="navbar-header">
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    @*<a class="logo" href="dashboard.html">
+                        <!-- Logo icon image, you can use font-icon also --><b>
+                            <!--This is dark logo icon--><img src="~/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="~/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                        </b>
+                        <!-- Logo text image you can use text also --><span class="hidden-xs">
+                            <!--This is dark logo text--><img src="~/plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="~/plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                        </span>
+                    </a>*@
+                </div>
+                <!-- /Logo -->
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li>
+                        <a class="profile-pic" href="#">
+                            <b class="hidden-xs m-r-15">Adminstrator</b>
+                            <img src="~/plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle">
+                        </a>
+                    </li>
+                    <button class="btn btn-primary pull-right ml-3" id="btnLogout" style="width:80px"> Log Out</button>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <div class="sidebar-head">
+                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+                </div>
+                <ul class="nav" id="side-menu">
+                    @*<li style="padding: 70px 0 0;">
+            <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+        </li>*@
+
+                    @*<li>
+            <a href="basic-table.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Adminstrators</a>
+        </li>*@
+                    <li style="padding: 70px 0 0;">
+                        <a href="https://localhost:5001/Dashboard/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Student/" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Students</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Course/" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Courses</a>
+                    </li>
+                    <li>
+                        <a href="https://localhost:5001/Dashboard/Subject/" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Subjects</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Student</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Administrator</a></li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- chat-listing & recent comments -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- .col -->
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Current Student</h3>
+                            <hr />
+                            <form id="form">
+                                <div class="form-group row hidden">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="inputEmail3" disabled class="form-control disabledItem" placeholder="ID" value="" rel="id" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">FirstName</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" id="inputEmail3" required disabled class="form-control disabledItem" placeholder="FirstName" value="" rel="firstName">
+                                        <div class="invalid-feedback">
+                                            Invalid Value.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">LastName</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" id="inputEmail3" required disabled class="form-control disabledItem" placeholder="LastName" value="" rel="lastName">
+                                        <div class="invalid-feedback">
+                                            Invalid Value.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" id="inputEmail3" required disabled class="form-control disabledItem" placeholder="Email" value="" rel="email">
+                                        <div class="invalid-feedback">
+                                            Invalid Value.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">UserName</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" id="inputEmail3" required disabled class="form-control disabledItem" placeholder="UserName" value="" rel="userName">
+                                        <div class="invalid-feedback">
+                                            Invalid Value.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Gender</label>
+                                    <div class="col-sm-10">
+                                        <select id="disabledItem" disabled class="form-control disabledItem" required rel="gender">
+                                            <option value="" disabled selected>Choose Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <div class="invalid-feedback">Invalid Value.</div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Course</label>
+                                    <div class="col-sm-10">
+                                        <select id="disabledItem" disabled class="form-control disabledItem" required rel="course">
+                                            <option value="" disabled selected>Choose Course</option>
+                                            
+                                        </select>
+                                        <div class="invalid-feedback">Invalid Value.</div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" id="inputPassword3" required disabled class="form-control disabledItem" placeholder="Password" value="" rel="password">
+                                        <div class="invalid-feedback">
+                                            Invalid Value.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" id="inputPassword3" required disabled class="form-control disabledItem" placeholder="Confirm Password" value="" rel="comfirmPassword">
+                                        <div class="invalid-feedback">
+                                            Value not match.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-primary pull-right ml-3" id="btnDelete" style="width:80px" disabled>Delete</button>
+                                        <button class="btn btn-primary pull-right ml-3" id="btnUpdate" style="width:80px" disabled>Update</button>
+                                        <button class="btn btn-primary pull-right ml-3" id="btnEdit" style="width:80px">Edit</button>
+                                        <button type="submit" class="btn btn-primary pull-left mr-3" id="btnCreate" style="width:80px">New</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                    
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+            @*<footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>*@
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="~/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="~/js/waves.js"></script>
+    <!--Counter js -->
+    <script src="~/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="~/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="~/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="~/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/js/dashboard1.js"></script>
+    <script src="~/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('token') == null) {
+                window.location.replace("https://localhost:5001/Login")
+            } 
+
+
+            var id = "@id";
+            var $studentsList = $("#listItems");
+            var $form = $("#form");
+            var $btnEdit = $("#btnEdit");
+            var $btnUpdate = $("#btnUpdate");
+            var $btnDelete = $("#btnDelete");
+            var $btnCreate = $("#btnCreate");
+
+            var students = [];
+
+            populateCurrentStudentById(id.toString());
+            getAllCourses();
+
+            function populateCurrentStudentById(id) {
+                $.ajax({
+                    type: "GET",
+                    url: "https://localhost:44380/api/v1/students/" + id,
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        $form.find('.disabledItem').each(function () {
+                            var relValue = $(this).attr("rel");
+                            if (relValue == "course") {
+                                if (data[relValue] == null) {
+                                    data[relValue] = "Empty"
+                                }
+                                else if (typeof(data[relValue]) === 'object') {
+                                    data[relValue] = data[relValue].courseId;
+                                } else {
+                                    data[relValue] = "Empty";
+                                }
+                                console.log(data[relValue]);
+                                $form.find('.disabledItem[rel="course"]').val(data[relValue]).change();
+                            }
+                            else {
+                                $form.find('.disabledItem[rel=' + relValue + ']').val(data[relValue]).change();
+                            }
+                            
+                        })
+                    },
+                    error: function (data) {
+                        if (data.status == "401") {
+                            window.location.replace("https://localhost:5001/Login");
+                        }
+                        $studentsTable.empty();
+                        console.log('bad')
+                    }
+                });
+            }
+
+            function courseSelectOption(data) {
+                return "<option value='"+ data.courseId +"'>"+data.name+"</option>"
+            }
+
+            function getAllCourses() {
+                $.ajax({
+                    type: "GET",
+                    url: "https://localhost:44380/api/v1/courses",
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data, function (index, value) {
+                            var courseToAppend = courseSelectOption(value);
+                            $form.find('.disabledItem[rel="course"]').append(courseToAppend);
+                        })
+                    },
+                    error: function (data) {
+                        if (data.status == "401") {
+                            window.location.replace("https://localhost:5001/Login");
+                        }
+                        console.log('bad')
+                    }
+                });
+            };
+
+            function addCourseToStudent(data) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://localhost:44380/api/v1/students/courses/",
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        //console.log(data)
+                    },
+                    error: function (data) {
+                        if (data.status == "401") {
+                            window.location.replace("https://localhost:5001/Login");
+                        }
+                        console.log('bad')
+                    }
+                });
+            }
+
+            function updateCurrentStudent(data) {
+                $.ajax({
+                    type: "PUT",
+                    url: "https://localhost:44380/api/v1/students/" + data.id,
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        console.log("jj");
+                    },
+                    error: function (data) {
+                        console.log('bad')
+                    },
+                    complete: function (jqxhr, txt_status) {
+                        console.log(jqxhr);
+                        if (jqxhr.status == 200) {
+                            var addcourrse2student = { "StudentId": data.id, "CourseId": data.course };
+                            console.log(addcourrse2student)
+                            addCourseToStudent(addcourrse2student)
+                        }
+                    }
+                });
+               
+            };
+
+            function createCurrentStudent(data) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://localhost:44380/api/v1/students/register",
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (succesData) {
+                        console.log(succesData);
+                        window.location.replace("https://localhost:5001/Dashboard/Student");
+                    },
+                    error: function (data) {
+                        console.log('bad')
+                    },
+                    complete: function (jqxhr, txt_status) {
+                        console.log(jqxhr);
+                        if (jqxhr.status == 200) {
+                            console.log('how')  
+                        }
+                        if (data.status == "401") {
+                            window.location.replace("https://localhost:5001/Login");
+                        }
+                    }
+                });
+
+            };
+
+            function deleteStudent(data) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://localhost:44380/api/v1/students/" + data,
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        window.location.replace("https://localhost:5001/Dashboard/Student");
+                    },
+                    error: function (data) {
+                        console.log(data)
+                        alert("Server is off")
+                        console.log('bad')
+                    }
+                });
+            }
+            
+
+            $btnDelete.on('click', function (e) {
+                e.preventDefault();
+                var firstInputRelValue = $form.find('.disabledItem').first().val();
+                console.log(firstInputRelValue);
+                //ajax to delete
+                deleteStudent(firstInputRelValue)
+                
+            })
+
+            $btnEdit.on('click', function (e) {
+                e.preventDefault();
+                $form.find('.disabledItem').each(function () {
+                    $(this).prop("disabled", false);
+                })
+                $btnUpdate.prop("disabled", false);
+                $btnDelete.prop("disabled", false);
+                $(this).prop("disabled", true)
+            })
+
+            var updateStudent = {};
+            $btnUpdate.on('click', function (e) {
+                e.preventDefault();
+                //i will check if everything is not empty
+                $form.find('.disabledItem').each(function () {
+                    var key = $(this).attr("rel");
+                    if (($(this).is('input')) && ($(this).val() != "")) {
+                        var value = { "value": $(this).val(), "pass": true };
+                        updateStudent[key] = value;
+                    } else if (($(this).is('select')) && ($(this).children().filter(':selected').val() != "")) {
+                        var value = { "value": $(this).children().filter(':selected').val(), "pass": true };
+                        updateStudent[key] = value;
+                    } else {
+                        var value = { "value": "", "pass": false };
+                        updateStudent[key] = value;
+                    };
+                })
+
+                var error = false;
+                $.each(updateStudent, function (key, value) {
+                    if ((key != "password") && (key != "comfirmPassword")) {
+                        if (value["pass"] == false) {
+                            $form.find('.disabledItem[rel=' + key + ']').addClass("is-invalid");
+                            error = true;
+                        }
+                        else {
+                            $form.find('.disabledItem[rel=' + key + ']').removeClass("is-invalid");
+                        }
+                    }
+                })
+
+                if (updateStudent.password.value != updateStudent.comfirmPassword.value) {
+                    $form.find('.disabledItem[rel="comfirmPassword"]').addClass("is-invalid");
+                } else if ((updateStudent.password.value == updateStudent.comfirmPassword.value) && error == false) {
+                    $form.find('.disabledItem[rel="comfirmPassword"]').removeClass("is-invalid");
+                    $(this).prop("disabled", true);
+                    $btnDelete.prop("disabled", true);
+                    $btnEdit.prop("disabled", false);
+                    $form.find('.disabledItem').each(function () {
+                        $(this).prop("disabled", true);
+                    })
+                    Object.keys(updateStudent).map(function (key, index) {
+                        updateStudent[key] = updateStudent[key].value;
+                    })
+
+                    console.log(updateStudent);
+                    updateCurrentStudent(updateStudent);
+                  
+                } else {
+                    //$form.find('.disabledItem[rel="comfirmPassword"]').removeClass("is-invalid");
+                    //$btnDelete.prop("disabled", true);
+                    //$btnEdit.prop("disabled", false);
+                    //$form.find('.disabledItem').each(function () {
+                    //    $(this).prop("disabled", true);
+                    //})
+                }
+
+            })
+
+
+            var newStudent = {};
+            $btnCreate.on('click', function (e) {
+                e.preventDefault();
+
+                if ($(this).html() == "New") {
+                    $(this).html("Create");
+                    $form.find('.disabledItem').each(function () {
+                        $form.find('.disabledItem[rel="course"]').parent().parent().hide();
+                        $(this).val("");
+                        $(this).prop("disabled", false);
+                        
+                    })
+                    $btnUpdate.prop("disabled", true);
+                    $btnDelete.prop("disabled", true);
+                    $btnEdit.prop("disabled", true);
+                } else {
+                    //i will check if everything is not empty
+                    $form.find('.disabledItem').each(function () {
+                        var key = $(this).attr("rel");
+                        if (($(this).is('input')) && ($(this).val() != "")) {
+                            var value = { "value": $(this).val(), "pass": true };
+                            newStudent[key] = value;
+                        } else if (($(this).is('select')) && ($(this).children().filter(':selected').val() != "")) {
+                            var value = { "value": $(this).children().filter(':selected').val(), "pass": true };
+                            newStudent[key] = value;
+                        } else {
+                            var value = { "value": "", "pass": false };
+                            newStudent[key] = value;
+                        };
+                    })
+
+                    var error = false;
+                    $.each(newStudent, function (key, value) {
+                        if (value["pass"] == false) {
+                            $form.find('.disabledItem[rel=' + key + ']').addClass("is-invalid");
+                            error = true;
+                        }
+                        else {
+                            $form.find('.disabledItem[rel=' + key + ']').removeClass("is-invalid");
+                        }
+                    })
+
+                    //console.log(newStudent, error);
+                    if (newStudent.password.value != newStudent.comfirmPassword.value) {
+                        $form.find('.disabledItem[rel="comfirmPassword"]').addClass("is-invalid");
+                    } else if ((newStudent.password.value == newStudent.comfirmPassword.value) && newStudent.id.pass == false) {
+                        if ((newStudent.password.value != "") && (newStudent.comfirmPassword.value != "")) { 
+                            $form.find('.disabledItem[rel="comfirmPassword"]').removeClass("is-invalid");
+                            $(this).prop("disabled", true);
+                            $btnDelete.prop("disabled", true);
+                            $btnEdit.prop("disabled", false);
+                            $form.find('.disabledItem').each(function () {
+                                $(this).prop("disabled", true);
+                            })
+                            Object.keys(newStudent).map(function (key, index) {
+                                newStudent[key] = newStudent[key].value;
+                            })
+
+                            console.log(newStudent);
+                            createCurrentStudent(newStudent)
+                        }
+                        
+                    } else {
+                        console.log('e');
+                        //$form.find('.disabledItem[rel="comfirmPassword"]').removeClass("is-invalid");
+                        //$btnDelete.prop("disabled", true);
+                        //$btnEdit.prop("disabled", false);
+                        //$form.find('.disabledItem').each(function () {
+                        //    $(this).prop("disabled", true);
+                        //})
+                    }
+
+
+
+                }
+            })
+
+            $('#btnLogout').on('click', function () {
+                localStorage.removeItem('token');
+                window.location.replace("https://localhost:5001/Login");
+            })
+
+            var $btnStudentsListsItems = $studentsList.find('a');
+            $btnStudentsListsItems.on('click', function (e) {
+                e.preventDefault();
+                var id = $(this).find('div').data('id');
+                window.location.replace("https://localhost:5001/Dashboard/Student/" + id);
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V6</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link href="~/library/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    @*<div class="jq-toast-single jq-has-icon jq-icon-warning" style="text-align: left; display: none;">
+            <span class="jq-toast-loader jq-toast-loaded">
+            </span>
+            <span class="close-jq-toast-single">×</span>
+            <h2 class="jq-toast-heading">Welcome to Ample admin</h2>
+            Use the predefined ones, or specify a custom position object.
+        </div>*@
+
+    @*<div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-85 p-b-20">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title p-b-70">
+                        Welcome
+                    </span>
+                    <span class="login100-form-avatar">
+                        <img src="images/avatar-01.jpg" alt="AVATAR">
+                    </span>
+
+                    <div class="wrap-input100 validate-input m-t-35 m-b-35" data-validate="Enter username">
+                        <input class="input100" type="text" name="username" id="email">
+                        <span class="focus-input100" data-placeholder="Username"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                        <input class="input100" type="password" name="pass" id="password">
+                        <span class="focus-input100" data-placeholder="Password"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" id="submit">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="Container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <form id="form" class="border rounded shadow p-3 my-5">
+
+                        <div class="alert shadow" id="alert" role="alert" hidden>
+                            <h5 class="alert-heading" id="alert-heading">Loading...</h5><hr>
+                            <small class="" id="alert-body">Loading..</small>
+                        </div>
+
+                        <h2 class="font-weight-light my-3">Login</h2>
+                        <div class="form-group">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control userValue" id="email" placeholder="Email" rel="email">
+                            <div class="invalid-feedback">Invalid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control userValue" autocomplete="new-password" id="password" placeholder="Password" rel="password">
+                            <div class="invalid-feedback">Password is empty</div>
+                        </div>
+
+                        <div class="text-center my-2" id="spinner" hidden>
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary col-12 mt-2" id="submit">Login</button>
+                        <a href="https://localhost:5001/Register" class="btn btn-outline-success col-12 mt-2">Register</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/library/jquery/jquery-3.3.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/library/bootstrap/js/popper.min.js"></script>
+    <script src="~/library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--===============================================================================================-->
+
+    <script>
+        $(document).ready(function () {
+            //if (localStorage.getItem('token') != null) {
+            //    window.location.replace("https://localhost:5001/Dashboard")
+            //}
+
+            var $form = $("#form");
+            var $formElements = $form.find('.userValue');
+            var $alert = $("#alert");
+            var $spinner = $("#spinner");
+
+            function getInputValues(data) {
+                var dataInput = {};
+                data.each(function () {
+                    var key = $(this).attr("rel");
+                    var element = $(this).prop("tagName").toLowerCase();
+                    if (($(this).is('input')) && ($(this).val() != "")) {
+                        var value = { "value": $(this).val(), "pass": true, "element": element };
+                        dataInput[key] = value;
+                    } else if (($(this).is('select')) && ($(this).children().filter(':selected').val() != "")) {
+                        var value = { "value": $(this).children().filter(':selected').val(), "pass": true, "element": element };
+                        dataInput[key] = value;
+                    } else {
+                        var value = { "value": "", "pass": false, "element": element };
+                        dataInput[key] = value;
+                    };
+                })
+                return dataInput;
+            }
+
+            function resetInputValues(data) {
+                data.each(function () {
+                    $(this).val("");
+                })
+            }
+
+            $("#submit").on('click', function (e) {
+                e.preventDefault();
+                var inputData = getInputValues($formElements);
+                var error = false;
+                $.each(inputData, function (key, value) {
+                    if (value["pass"] == false) {
+                        $form.find('.userValue[rel=' + key + ']').addClass("is-invalid");
+                        error = true;
+                    }
+                    else {
+                        $form.find('.userValue[rel=' + key + ']').removeClass("is-invalid");
+                    }
+                })
+                Object.keys(inputData).map(function (key, index) {
+                    inputData[key] = inputData[key].value;
+                })
+                if (!error) {
+                    $spinner.prop("hidden", false);
+                    $.ajax({
+                        type: "POST",
+                        url: "https://localhost:44380/api/v1/admins/login",
+                        //headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                        data: JSON.stringify(inputData),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data)
+                            //main@admin.com
+                            //mainAdminPassword
+                            localStorage.setItem('token', data.token);
+                            localStorage.setItem('user', data.user.userName);
+                            $spinner.prop("hidden", true);
+                            resetInputValues($formElements);
+                            $alert.prop("hidden", true);
+                            $alert.removeClass("alert-danger").addClass("alert-success");
+                            $alert.find("#alert-heading").html("Success");
+                            $alert.find("#alert-body").html("Login successfully Redirecting...");
+                            $alert.prop("hidden", false);
+
+                            window.location.replace("https://localhost:5001/Dashboard")
+                            //console.log(data);
+                        },
+                        error: function (data) {
+                            console.log(data)
+                            $spinner.prop("hidden", true);
+                            var errors = data.responseJSON.errors.join(" </br> ");
+                            $alert.addClass("alert-danger");
+                            $alert.find("#alert-heading").html("Error!");
+                            $alert.find("#alert-body").html(errors);
+                            $alert.prop("hidden", false);
+                        }
+                    });
+                } else {
+                    //    console.log(inputData);
+                }
+
+            });
+        })
+    </script>
+
+</body>
+</html>
+
